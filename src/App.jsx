@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import './App.css'
 import StoryBubble from './components/StoryList/StoryBubble'
 import AddStoryButton from './components/StoryList/AddStoryButton'
-
+import StoryViewer from './components/StoryViewer/StoryViewer'
 function App({ onAddStory }) {
     const [stories, setStories] = useState([]);
     const handleAddStory = (newStory) => {
@@ -17,6 +17,7 @@ function App({ onAddStory }) {
                     <StoryBubble key={index} image={story} />
                 ))}
             </div>
+            
         </div>
     );
 }
