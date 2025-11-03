@@ -1,28 +1,23 @@
 import { useState, useRef } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import StoryBubble from './components/StoryList/StoryBubble'
+import AddStoryButton from './components/StoryList/AddStoryButton'
 
 function App({onAddStory}) {
- const handleFileChange = (e)=>{
-         const file = e.target.files[0];
-         if(!file) return;
-         const reader = new FileReader();
-         reader.readAsDataURL(file);
-         reader.onloadend = ()=>{
-             onAddStory(reader.result);
-         }
-    }
-    const fileInput = useRef(null);
-    const handleClick = ()=>{
-        fileInput.current.click();
-    }
+    const [stories, setStories] = useState([]);
+    const handleAddStory = (newStory) => {
+        setStories([...stories, newStory]);
+    };
     return (
-        <>
-            <button onClick={handleClick}>+</button>
-            <input type="file" accept="image/*" onChange={handleFileChange} hidden ref={fileInput} />
-        </>
+        <div className="app">
+            <h1>Story Feature</h1>
+            <div className="story-list">
+                {stories.map((story, index) => (
+                    <StoryBubble key={index} image={story} />
+                ))}
+            </div>
+            <AddStoryButton onAddStory={handleAddStory} />
+        </div>
     );
-}
-
+}   
 export default App
