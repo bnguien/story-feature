@@ -5,3 +5,6 @@
   padding: 2rem;
   text-align: center;
 }
+.scrolling::-webkit-scrollbar {
+  display: none; 
+}
