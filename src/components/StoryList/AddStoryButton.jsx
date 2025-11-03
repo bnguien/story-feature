@@ -19,7 +19,7 @@ function AddStoryButton({ onAddStory }) {
         <>
             <div
                 onClick={handleClick}
-                className="group w-16 mr-2 flex items-center relative border-dashed 
+                className="group w-16 mr-2 flex shrink-0 items-center relative border-dashed 
                 justify-center cursor-pointer h-16 p-1 rounded-full border-2 border-gray-400 text-gray-400 
                 hover:border-blue-400 hover:text-blue-400 transition-colors"
             >
